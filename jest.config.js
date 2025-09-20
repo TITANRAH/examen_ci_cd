@@ -7,7 +7,7 @@ const config = {
     "<rootDir>/node_modules/",
     "<rootDir>/tests/",
   ],
-  moduleNameMapping: {
+  moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
   collectCoverageFrom: [
@@ -25,7 +25,7 @@ const config = {
     },
   },
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
+    "^.+\\.(js|jsx|ts|tsx)$": ["next/jest"],
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 };

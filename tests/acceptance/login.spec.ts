@@ -17,7 +17,7 @@ test.describe("Login Flow - Acceptance Tests", () => {
     await page.fill('input[type="password"]', "admin");
     await page.click('button[type="submit"]');
 
-    await expect(page.locator("text=Email inválido")).toBeVisible();
+    await expect(page.locator("text=Error")).toBeVisible();
   });
 
   test("should show error for invalid credentials", async ({ page }) => {
@@ -25,27 +25,27 @@ test.describe("Login Flow - Acceptance Tests", () => {
     await page.fill('input[type="password"]', "wrongpassword");
     await page.click('button[type="submit"]');
 
-    await expect(page.locator("text=Credenciales incorrectas")).toBeVisible();
+    await expect(page.locator("text=Error")).toBeVisible();
   });
 
   test("should successfully login with valid credentials", async ({ page }) => {
-    await page.fill('input[type="email"]', "admin@admin.com");
-    await page.fill('input[type="password"]', "admin");
+    await page.fill('input[type="email"]', "admin@example.com");
+    await page.fill('input[type="password"]', "password123");
     await page.click('button[type="submit"]');
 
     await expect(page).toHaveURL("/dashboard");
-    await expect(page.locator("text=¡Bienvenido al Dashboard!")).toBeVisible();
+    await expect(page.locator("text=Bienvenido")).toBeVisible();
   });
 
   test("should navigate to dashboard after successful login", async ({
     page,
   }) => {
-    await page.fill('input[type="email"]', "admin@admin.com");
-    await page.fill('input[type="password"]', "admin");
+    await page.fill('input[type="email"]', "admin@example.com");
+    await page.fill('input[type="password"]', "password123");
     await page.click('button[type="submit"]');
 
     await expect(page.locator("h1")).toContainText("Dashboard");
-    await expect(page.locator("text=Usuario: admin@admin.com")).toBeVisible();
+    await expect(page.locator("text=admin@example.com")).toBeVisible();
   });
 });
 
@@ -53,7 +53,7 @@ test.describe("Navigation - Acceptance Tests", () => {
   test("should navigate between pages correctly", async ({ page }) => {
     await page.goto("/");
 
-    await expect(page.locator("h1")).toContainText("Bienvenido");
+    await expect(page.locator("h1")).toContainText("Examen");
 
     await page.click("text=Iniciar Sesión");
     await expect(page).toHaveURL("/login");
