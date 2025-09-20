@@ -12,6 +12,12 @@ Se trata de una aplicación web simple que incluye un sistema de autenticación 
 - API REST para autenticación
 - Funciones utilitarias para validación
 
+## Evidencia Visual
+
+![Pipeline CI/CD](/public/pipelines.png)
+
+_Captura de pantalla mostrando la ejecución exitosa de los pipelines de CI/CD en GitHub Actions_
+
 ## Actividades del Examen Implementadas
 
 ### Actividad 1: Repositorio Git y Configuración de Proyecto
@@ -253,8 +259,8 @@ npm run dev
 
 Para probar el sistema de login, utiliza las siguientes credenciales:
 
-- **Email**: admin@admin.com
-- **Contraseña**: admin
+- **Email**: admin@example.com
+- **Contraseña**: password123
 
 ## Pipelines CI/CD
 
@@ -392,7 +398,6 @@ Los reportes se generan automáticamente en:
 **2. Testing Framework**
 
 ```java
-// JUnit en Java
 @Test
 public void testValidEmail() {
     assertTrue(EmailValidator.isValid("test@example.com"));
