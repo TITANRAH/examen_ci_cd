@@ -1,6 +1,6 @@
 # Proyecto de Examen - Pipeline CI/CD con Next.js
 
-Este proyecto fue desarrollado como parte de un examen académico para demostrar la implementación completa de pipelines de Integración Continua (CI) y Despliegue Continuo (CD) utilizando Next.js, JavaScript y TypeScript.
+Implementación completa de pipelines de Integración Continua (CI) y Despliegue Continuo (CD) utilizando Next.js, JavaScript y TypeScript.
 
 ## Descripción del Proyecto
 
@@ -507,13 +507,3 @@ Este proyecto demuestra la implementación exitosa de:
 - Automatización completa del proceso de desarrollo
 - Pull Request obligatorio con status checks
 - Calidad garantizada antes de merge
-
-La implementación cumple con todos los requisitos del examen y proporciona una base sólida para proyectos de producción reales.
-
-## Autor
-
-Proyecto desarrollado como parte de evaluación académica en el área de DevOps y CI/CD.
-
-## Fecha de Entrega
-
-[Fecha actual]
