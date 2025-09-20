@@ -30,6 +30,7 @@ export function useAuth() {
         return { success: false, error: data.message };
       }
     } catch (err) {
+      console.log("Error de conexión", err);
       setError("Error de conexión");
       return { success: false, error: "Error de conexión" };
     } finally {
