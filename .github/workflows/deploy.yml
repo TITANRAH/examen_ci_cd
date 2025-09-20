@@ -64,7 +64,6 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  # Job 2: Deploy to Production (Blue-Green)
   deploy-production:
     name: Deploy to Production
     runs-on: ubuntu-latest

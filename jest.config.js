@@ -25,9 +25,17 @@ const config = {
     },
   },
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": ["next/jest"],
+    "^.+\\.(ts|tsx)$": ["ts-jest", {
+      tsconfig: "tsconfig.json"
+    }],
+    "^.+\\.(js|jsx)$": ["babel-jest", {
+      presets: [
+        ["@babel/preset-env", { targets: { node: "current" } }],
+        ["@babel/preset-react", { runtime: "automatic" }],
+      ]
+    }]
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 };
 
-export default config;
+module.exports = config;
