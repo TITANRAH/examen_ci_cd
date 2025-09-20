@@ -57,7 +57,7 @@ jobs:
           BASE_URL: https://staging.examen-ci-cd.vercel.app
 
       - name: Upload acceptance test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: acceptance-test-results
