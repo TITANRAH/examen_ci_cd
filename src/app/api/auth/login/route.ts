@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (email === "admin@admin.com" && password === "admin") {
+    if (email === "admin@example.com" && password === "password123") {
       return NextResponse.json(
         {
           success: true,
