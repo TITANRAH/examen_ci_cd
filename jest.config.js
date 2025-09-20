@@ -25,7 +25,12 @@ const config = {
     },
   },
   transform: {
-    "^.+\\.(ts|tsx|js|jsx)$": ["babel-jest"],
+    "^.+\\.(ts|tsx|js|jsx)$": [
+      "babel-jest",
+      {
+        configFile: "./babel.config.jest.js",
+      },
+    ],
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 };
