@@ -137,12 +137,6 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-files
-          path: .next/
-
       - name: Run Playwright tests
         run: npm run test:acceptance
 

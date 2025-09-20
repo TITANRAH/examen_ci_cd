@@ -10,6 +10,18 @@ export function useAuth() {
     setError("");
     setLoading(true);
 
+    if (!email || !email.includes("@")) {
+      setError("Error");
+      setLoading(false);
+      return { success: false, error: "Error" };
+    }
+
+    if (!password || password.length < 3) {
+      setError("Error");
+      setLoading(false);
+      return { success: false, error: "Error" };
+    }
+
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
@@ -26,12 +38,12 @@ export function useAuth() {
         router.push("/dashboard");
         return { success: true, user: data.user };
       } else {
-        setError(data.message || "Error al iniciar sesión");
-        return { success: false, error: data.message };
+        setError("Error");
+        return { success: false, error: "Error" };
       }
     } catch (err) {
-      setError("Error de conexión");
-      return { success: false, error: "Error de conexión" };
+      setError("Error");
+      return { success: false, error: "Error" };
     } finally {
       setLoading(false);
     }

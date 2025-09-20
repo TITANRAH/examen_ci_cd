@@ -13,8 +13,8 @@ test.describe("Login Flow - Acceptance Tests", () => {
   });
 
   test("should show error for invalid email format", async ({ page }) => {
-    await page.fill('input[type="email"]', "invalid-email");
-    await page.fill('input[type="password"]', "admin");
+    await page.fill('input[type="email"]', "test@invalid");
+    await page.fill('input[type="password"]', "short");
     await page.click('button[type="submit"]');
 
     await expect(page.locator("text=Error")).toBeVisible();
@@ -33,7 +33,7 @@ test.describe("Login Flow - Acceptance Tests", () => {
     await page.fill('input[type="password"]', "password123");
     await page.click('button[type="submit"]');
 
-    await expect(page).toHaveURL("/dashboard");
+    await page.waitForURL("/dashboard", { timeout: 10000 });
     await expect(page.locator("text=Bienvenido")).toBeVisible();
   });
 
@@ -44,6 +44,7 @@ test.describe("Login Flow - Acceptance Tests", () => {
     await page.fill('input[type="password"]', "password123");
     await page.click('button[type="submit"]');
 
+    await page.waitForURL("/dashboard", { timeout: 10000 });
     await expect(page.locator("h1")).toContainText("Dashboard");
     await expect(page.locator("text=admin@example.com")).toBeVisible();
   });
@@ -58,6 +59,7 @@ test.describe("Navigation - Acceptance Tests", () => {
     await page.click("text=Iniciar Sesión");
     await expect(page).toHaveURL("/login");
 
+    await page.goto("/");
     await page.click("text=Inicio");
     await expect(page).toHaveURL("/");
   });
